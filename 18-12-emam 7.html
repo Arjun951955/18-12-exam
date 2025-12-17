@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 3 – JavaScript Set E</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            padding: 20px;
+        }
+        h1 {
+            color: #0d6efd;
+            text-align: center;
+        }
+        .box {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+        }
+        button {
+            padding: 8px 15px;
+            background: #198754;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        p {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Task 3 – JavaScript SET E</h1>
+
+<div class="box">
+    <button onclick="reverseString()">1. Reverse String</button>
+    <p id="r1"></p>
+</div>
+
+<div class="box">
+    <button onclick="extractChar()">2. Extract 3rd & 4th Characters</button>
+    <p id="r2"></p>
+</div>
+
+<div class="box">
+    <button onclick="longestWord()">3. Find Longest Word</button>
+    <p id="r3"></p>
+</div>
+
+<div class="box">
+    <button onclick="toLower()">4. Convert to Lowercase</button>
+    <p id="r4"></p>
+</div>
+
+<div class="box">
+    <button onclick="toUpper()">5. Convert to Uppercase</button>
+    <p id="r5"></p>
+</div>
+
+<div class="box">
+    <button onclick="countWords()">6. Count Words & Special Symbols</button>
+    <p id="r6"></p>
+</div>
+
+<div class="box">
+    <button onclick="arrayNumbers()">7–12. Array Operations</button>
+    <p id="r7"></p>
+</div>
+
+<div class="box">
+    <button onclick="arithmetic()">13–16. Arithmetic Operations</button>
+    <p id="r8"></p>
+</div>
+
+<div class="box">
+    <button onclick="evenOdd()">17. Even / Odd</button>
+    <p id="r9"></p>
+</div>
+
+<div class="box">
+    <button onclick="formData()">18–19. Form Data Display & Count</button>
+    <p id="r10"></p>
+</div>
+
+<div class="box">
+    <button onclick="personObj()">20. Person Object</button>
+    <p id="r11"></p>
+</div>
+
+<script>
+function reverseString() {
+    let str = prompt("Enter a string");
+    document.getElementById("r1").innerText = str.split("").reverse().join("");
+}
+
+function extractChar() {
+    let str = prompt("Enter a string");
+    document.getElementById("r2").innerText = str[2] + " " + str[3];
+}
+
+function longestWord() {
+    let str = prompt("Enter sentence");
+    let words = str.split(" ");
+    let longest = words.reduce((a,b)=>a.length>b.length?a:b);
+    document.getElementById("r3").innerText = longest;
+}
+
+function toLower() {
+    let str = prompt("Enter text");
+    document.getElementById("r4").innerText = str.toLowerCase();
+}
+
+function toUpper() {
+    let str = prompt("Enter text");
+    document.getElementById("r5").innerText = str.toUpperCase();
+}
+
+function countWords() {
+    let str = prompt("Enter text");
+    let words = str.split(" ").length;
+    let symbols = str.replace(/[a-zA-Z0-9 ]/g,"").length;
+    document.getElementById("r6").innerText =
+        "Words: " + words + ", Special Symbols: " + symbols;
+}
+
+function arrayNumbers() {
+    let arr = [10,20,30,40,50];
+    let doubled = arr.map(x => x*2);
+    arr.splice(2,1);
+    document.getElementById("r7").innerText =
+        "Array: " + arr + " | Doubled: " + doubled;
+}
+
+function arithmetic() {
+    let a = Number(prompt("Enter first number"));
+    let b = Number(prompt("Enter second number"));
+    document.getElementById("r8").innerText =
+        "Add: "+(a+b)+" Multiply: "+(a*b)+" Divide: "+(a/b);
+}
+
+function evenOdd() {
+    let n = prompt("Enter number");
+    document.getElementById("r9").innerText =
+        n%2===0 ? "Even" : "Odd";
+}
+
+function formData() {
+    let name = prompt("Name");
+    let email = prompt("Email");
+    let filled = [name,email].filter(x=>x).length;
+    document.getElementById("r10").innerText =
+        "Name: "+name+", Email: "+email+", Filled fields: "+filled;
+}
+
+function personObj() {
+    let person = {name:"Arjun", age:22, course:"IT"};
+    document.getElementById("r11").innerText =
+        JSON.stringify(person);
+}
+</script>
+
+</body>
+</html>
